@@ -1,0 +1,14 @@
+{
+    "name": "spacecreatedd/pop-it-mvc",
+    "description": "practise for a server side",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "spacecreatedd",
+            "email": "kimzhenya1313@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

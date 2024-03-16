@@ -11,18 +11,19 @@
 <header>
    <nav>
        <a href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
-       <?php
-       if (!app()->auth::check()):
-           ?>
+       <?php if (!app()->auth::check()): ?>
            <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
            <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
-       <?php
-       else:
-           ?>
+       <?php else: ?>
+           <?php $userRole = app()->auth::user()->role; ?>
            <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
-       <?php
-       endif;
-       ?>
+           <?php if ($userRole === 'register'): ?>
+               <a href="<?= app()->route->getUrl('/doctor') ?>">Создать врача</a>
+               <a href="<?= app()->route->getUrl('/patient') ?>">Создать пациента</a>
+           <?php elseif ($userRole === 'admin'): ?>
+               <a href="<?= app()->route->getUrl('/create/registrar') ?>">Создать сотрудника регистрации</a>
+           <?php endif; ?>
+       <?php endif; ?>
    </nav>
 </header>
 <main>

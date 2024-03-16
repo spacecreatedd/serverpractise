@@ -3,7 +3,7 @@
         'name' => 'spacecreatedd/pop-it-mvc',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '7db963c950f7bfa35abf06681d32d0bfdebc2eeb',
+        'reference' => '37ed20abb67c6b4ea63794ad34cbc883aff17c88',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -136,6 +136,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'nikic/fast-route' => array(
+            'pretty_version' => 'v1.x-dev',
+            'version' => '1.9999999.9999999.9999999-dev',
+            'reference' => '4012884e0b916e1bd895a5061d4abc3c99e283a4',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../nikic/fast-route',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'psr/clock' => array(
             'pretty_version' => '1.0.0',
             'version' => '1.0.0.0',
@@ -188,7 +197,7 @@
         'spacecreatedd/pop-it-mvc' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '7db963c950f7bfa35abf06681d32d0bfdebc2eeb',
+            'reference' => '37ed20abb67c6b4ea63794ad34cbc883aff17c88',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -233,7 +242,7 @@
         'symfony/polyfill-mbstring' => array(
             'pretty_version' => '1.x-dev',
             'version' => '1.9999999.9999999.9999999-dev',
-            'reference' => '9773676c8a1bb1f8d4340a62efe641cf76eda7ec',
+            'reference' => 'e5e7ddb00b859dbdf5ad8f3bbe4cd29a3a37aa34',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
             'aliases' => array(),

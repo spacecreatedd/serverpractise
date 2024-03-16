@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Record extends Model
 {
     use HasFactory;
-
+    protected $table = 'record';
     public $timestamps = false;
     protected $fillable = [
         'patient_id',
@@ -16,15 +16,7 @@ class Record extends Model
         'date'
     ];
 
-    // Определяем отношение "многие к одному" с моделью Patient
-    public function patient()
-    {
-        return $this->belongsTo('Model\Patient');
-    }
-
-    // Определяем отношение "многие к одному" с моделью Doctor
-    public function doctor()
-    {
-        return $this->belongsTo('Model\Doctor');
+    public function getId():int{
+        return $this->id;
     }
 }

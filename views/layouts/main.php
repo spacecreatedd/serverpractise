@@ -6,10 +6,32 @@
          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Pop it MVC</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+   <style>
+        *{
+            font-family: "Montserrat", sans-serif;
+        }
+        .nav-a{
+            display:flex;
+            gap:50px;
+            font-weight:600;
+        }
+        .nav-a a{
+            text-decoration:none;
+            color:black;
+            font-size:25px;
+        }
+        .nav-a a:hover{
+            color:orange;
+            transition:0.2s ease-out;
+        }
+    </style>
 </head>
 <body>
 <header>
-   <nav>
+   <nav class="nav-a">
        <a href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
        <?php if (!app()->auth::check()): ?>
            <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
@@ -20,8 +42,9 @@
            <?php if ($userRole === 'register'): ?>
                <a href="<?= app()->route->getUrl('/doctor') ?>">Создать врача</a>
                <a href="<?= app()->route->getUrl('/patient') ?>">Создать пациента</a>
+               <a href="<?= app()->route->getUrl('/record') ?>">Создать запись</a>
            <?php elseif ($userRole === 'admin'): ?>
-               <a href="<?= app()->route->getUrl('/create/registrar') ?>">Создать сотрудника регистрации</a>
+               <a href="<?= app()->route->getUrl('/register') ?>">Создать сотрудника регистрации</a>
            <?php endif; ?>
        <?php endif; ?>
    </nav>

@@ -9,6 +9,9 @@ use Model\User;
 use Src\Auth\Auth;
 use Model\Doctor;
 use Model\Patient;
+use Model\Jobs;
+use Model\Specs;
+use Model\Record;
 
 class Site
 {
@@ -57,12 +60,16 @@ class Site
     public function createDoctor(Request $request): string
     {
         if (Auth::check() && Auth::user()->role === 'register') {
+            $jobs = Jobs::all();
+            $specs = Specs::all();
             if ($request->method === 'POST' && Doctor::create($request->all())) {
                 app()->route->redirect('/hello');
             }
-            return new View('site.doctor');
+            return new View('site.doctor', ['jobs' => $jobs, 'specs' => $specs]);
+
         }
         app()->route->redirect('/hello');
+
     }
     
     public function createPatient(Request $request): string
@@ -72,6 +79,33 @@ class Site
                 app()->route->redirect('/hello');
             }
             return new View('site.patient');
+        }
+        app()->route->redirect('/hello');
+    }
+
+    public function createReg(Request $request): string
+    {
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            if ($request->method === 'POST' && User::create($request->all())) {
+                app()->route->redirect('/hello');
+            }
+            return new View('site.register');
+        }
+        app()->route->redirect('/hello');
+    }
+
+    
+    public function createRecord(Request $request): string
+    {
+        $patient_id = Patient::all();
+        $doctor_id = Doctor::all(); 
+
+
+        if (Auth::check() && Auth::user()->role === 'register') {
+            if ($request->method === 'POST' && Record::create($request->all())) {
+                app()->route->redirect('/hello');
+            }
+            return new View('site.record', ['patient_id' => $patient_id, 'doctor_id' => $doctor_id]);
         }
         app()->route->redirect('/hello');
     }

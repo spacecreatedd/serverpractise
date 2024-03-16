@@ -19,4 +19,7 @@ class Doctor extends Model
         'specialization'
     ];
 
+    public function getId():int{
+        return $this->id;
+    }
 }

@@ -15,5 +15,9 @@ Route::add(['GET', 'POST'],  '/patient', [Controller\Site::class, 'createPatient
     ->middleware('auth');
 
 
-// Route::add('GET', '/create/registrar', [Controller\Site::class, 'createRegistrar'])
-//     ->middleware('auth');
+Route::add(['GET', 'POST'], '/register', [Controller\Site::class, 'createReg'])
+    ->middleware('auth');
+
+
+Route::add(['GET', 'POST'], '/record', [Controller\Site::class, 'createRecord'])
+    ->middleware('auth');

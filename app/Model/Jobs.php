@@ -5,18 +5,15 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Patient extends Model
+class Jobs extends Model
 {
     use HasFactory;
-    protected $table = 'patient'; // Указываем имя вашей таблицы
+    protected $table = 'jobs';
     public $timestamps = false;
     protected $fillable = [
-        'name',
-        'surname',
-        'patronym',
-        'date_of_birth'
+        'job'
     ];
-
+    
     public function getId():int{
         return $this->id;
     }

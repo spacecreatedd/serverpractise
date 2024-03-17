@@ -13,9 +13,12 @@
         *{
             font-family: "Montserrat", sans-serif;
         }
+        body{
+            padding:0 150px;
+        }
         .nav-a{
             display:flex;
-            gap:50px;
+            justify-content:space-between;
             font-weight:600;
         }
         .nav-a a{
@@ -26,6 +29,32 @@
         .nav-a a:hover{
             color:orange;
             transition:0.2s ease-out;
+        }
+
+        input{
+            padding:8px;
+            font-size:15px;
+            outline:0;
+            border-radius:5px;
+            border:0;
+            background:#e7e7e7;
+        }
+        select{
+            border:0;
+            background:#e7e7e7;
+            padding:5px;
+        }
+        .add-form{
+            display:flex;
+            gap:2px;
+            flex-direction:column;
+            max-width:250px;
+        }
+        button{
+            background-color:black;
+            color:white;
+            padding:13px;   
+            font-size:20px;
         }
     </style>
 </head>

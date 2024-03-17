@@ -1,5 +1,5 @@
 <h1><?= $message ?? ''; ?></h1>
-<form method="POST">
+<form class="add-form" method="POST">
     <label for="patient_id">Пациент:</label><br>
     <select name="patient_id">
         <option value="">Выберите пациента</option>

@@ -24,7 +24,8 @@
         .nav-a a{
             text-decoration:none;
             color:black;
-            font-size:25px;
+            font-size:20px;
+            margin-top:15px;
         }
         .nav-a a:hover{
             color:orange;
@@ -64,7 +65,6 @@
        <a href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
        <?php if (!app()->auth::check()): ?>
            <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
-           <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
        <?php else: ?>
            <?php $userRole = app()->auth::user()->role; ?>
            <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
@@ -72,6 +72,9 @@
                <a href="<?= app()->route->getUrl('/doctor') ?>">Создать врача</a>
                <a href="<?= app()->route->getUrl('/patient') ?>">Создать пациента</a>
                <a href="<?= app()->route->getUrl('/record') ?>">Создать запись</a>
+               <a href="<?= app()->route->getUrl('/chooserecord') ?>">Выбрать (запись)</a>
+               <a href="<?= app()->route->getUrl('/choosepatient') ?>">Выбрать (пациентов)</a>
+               <a href="<?= app()->route->getUrl('/choosedoctor') ?>">Выбрать (врачей)</a>
            <?php elseif ($userRole === 'admin'): ?>
                <a href="<?= app()->route->getUrl('/register') ?>">Создать сотрудника регистрации</a>
            <?php endif; ?>

@@ -12,6 +12,8 @@ use Model\Patient;
 use Model\Jobs;
 use Model\Specs;
 use Model\Record;
+use Model\Chooserecord;
+use Model\Choosepatient;
 
 class Site
 {
@@ -29,13 +31,13 @@ class Site
     }
     
 
-    public function signup(Request $request): string
-    {
-        if ($request->method === 'POST' && User::create($request->all())) {
-            app()->route->redirect('/hello');
-        }
-        return new View('site.signup');
-    }
+    // public function signup(Request $request): string
+    // {
+    //     if ($request->method === 'POST' && User::create($request->all())) {
+    //         app()->route->redirect('/hello');
+    //     }
+    //     return new View('site.signup');
+    // }
 
     public function login(Request $request): string
     {
@@ -108,5 +110,16 @@ class Site
             return new View('site.record', ['patient_id' => $patient_id, 'doctor_id' => $doctor_id]);
         }
         app()->route->redirect('/hello');
+    }
+    
+
+    public function chooserecord(Request $request): string {
+        return new View('site.chooserecord');
+    }
+    public function choosepatient(Request $request): string {
+        return new View('site.choosepatient');
+    }
+    public function choosedoctor(Request $request): string {
+        return new View('site.choosedoctor');
     }
 }

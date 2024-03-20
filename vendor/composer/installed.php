@@ -3,7 +3,7 @@
         'name' => 'spacecreatedd/pop-it-mvc',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '37ed20abb67c6b4ea63794ad34cbc883aff17c88',
+        'reference' => '41fa4d8793f07f7d109653694de4314ad4b081cc',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -197,7 +197,7 @@
         'spacecreatedd/pop-it-mvc' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '37ed20abb67c6b4ea63794ad34cbc883aff17c88',
+            'reference' => '41fa4d8793f07f7d109653694de4314ad4b081cc',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

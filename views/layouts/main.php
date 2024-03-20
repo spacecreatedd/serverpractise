@@ -50,12 +50,21 @@
             gap:2px;
             flex-direction:column;
             max-width:250px;
+            margin-top:50px;
         }
         button{
             background-color:black;
             color:white;
             padding:13px;   
             font-size:20px;
+        }
+        .record{
+            max-width:1000px;
+            display:flex;
+            justify-content:space-between;
+            border:1px solid #000;
+            padding:10px 25px;
+            margin:25px 0;
         }
     </style>
 </head>

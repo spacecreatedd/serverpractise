@@ -126,21 +126,35 @@ class Site
                 'required' => 'Поле :field пусто',
             ]);
     
-            if($validator->fails()){
-                return new View('site.patient',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            if ($validator->fails()) {
+                return new View('site.patient', ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
-
-        }
-
-        if (Auth::check() && Auth::user()->role === 'register') {
-            if ($request->method === 'POST' && Patient::create($request->all())) {
-                app()->route->redirect('/choosepatient');
+    
+            // Получаем информацию о файле из массива $_FILES
+            $image = $_FILES['image'];
+            $image_name = $image['name'];
+            $image_tmp = $image['tmp_name'];
+            $img_ex = pathinfo($image_name, PATHINFO_EXTENSION);
+            $new_img_name = uniqid("IMG-", true) . '.' . $img_ex;
+            move_uploaded_file($image_tmp, $new_img_name); // Перемещаем загруженный файл в нужную папку
+    
+            // Заменяем имя файла в данных пациента на новое имя
+            $patientData = $request->all();
+            $patientData['image'] = $new_img_name;
+    
+            if (Auth::check() && Auth::user()->role === 'register') {
+                if (Patient::create($patientData)) {
+                    return app()->route->redirect('/choosepatient');
+                } else {
+                    return new View('site.patient', ['message' => 'Ошибка при создании пациента']);
+                }
             }
-            return new View('site.patient');
         }
-        app()->route->redirect('/choosepatient');
+    
+        // Если пользователь не авторизован или не отправлен методом POST
+        return new View('site.patient');
     }
+    
 
     public function createReg(Request $request): string
     {

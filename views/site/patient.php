@@ -1,3 +1,4 @@
+<h1><?= $message ?? ''; ?></h1>
 <form class="add-form" method="POST" enctype="multipart/form-data">
 <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <input  type="text" id="name" name="name" placeholder="Имя"><br>

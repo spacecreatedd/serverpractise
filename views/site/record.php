@@ -1,3 +1,4 @@
+<h1><?= $message ?? ''; ?></h1>
 <form class="add-form" method="POST">
 <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <label for="patient_id">Пациент:</label>

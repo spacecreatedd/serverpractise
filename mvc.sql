@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 21 2024 г., 04:34
+-- Время создания: Мар 21 2024 г., 05:20
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.0.30
 
@@ -88,9 +88,8 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`id`, `name`, `surname`, `patronym`, `date_of_birth`, `image`) VALUES
-(115, 'zhenya', 'kim', 'qwe', '2024-03-22', 'Array'),
-(116, 'дима', 'данилов', 'чушпанчиков', '2024-03-28', 'Array'),
-(118, 'asas', 'ccdsac', 'cdvdavd', '2024-03-23', 'Array');
+(123, 'vfrsg', 'hehet', 'hetheth', '2024-03-30', 'IMG-65fbb4a04c4207.23678436.png'),
+(124, 'ррк', 'таппар', 'итрпатрпа', '2024-03-29', 'IMG-65fbb4acd00fc2.61949331.png');
 
 -- --------------------------------------------------------
 
@@ -131,12 +130,9 @@ CREATE TABLE `record` (
 --
 
 INSERT INTO `record` (`id`, `patient_id`, `doctor_id`, `date`) VALUES
-(15, 115, 357, '2024-03-30'),
-(16, 116, 360, '2024-03-29'),
-(17, 116, 363, '2024-01-01'),
-(18, 116, 363, '2024-01-01'),
-(19, 115, 359, '2024-03-14'),
-(24, 115, 360, '2024-03-22');
+(25, 123, 360, '2024-03-30'),
+(26, 124, 359, '2024-03-29'),
+(27, 123, 360, '2024-03-28');
 
 -- --------------------------------------------------------
 
@@ -258,7 +254,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT для таблицы `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT для таблицы `posts`
@@ -270,7 +266,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT для таблицы `record`
 --
 ALTER TABLE `record`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT для таблицы `specs`

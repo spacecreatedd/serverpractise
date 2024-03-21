@@ -1,4 +1,5 @@
 <form class="add-form" method="POST" action="/pop-it-mvc/choosepatient">
+<input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <select name="choosedoctor">
         <option value="">Выберите врача:</option> 
         <?php foreach($doctors as $doctor): ?>
@@ -17,6 +18,5 @@
         <p>Фамилия: <?= $patient->surname ?></p>
         <p>Отчество: <?= $patient->patronym ?></p>
         <p>Дата рождения: <?= $patient->date_of_birth ?></p>
-        <!-- Добавьте остальные поля для отображения информации о пациенте -->
     </div>
 <?php endforeach; ?>

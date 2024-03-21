@@ -1,4 +1,5 @@
 <form class="add-form" method="POST">
+<input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <select name="choosedPatient">
         <option value="">Выберите пациента</option>
         <?php foreach($patients as $patient): ?>
@@ -8,8 +9,10 @@
     <button type="submit">Выбрать</button>
 </form>
 
-<h2>Список врачей:</h2>
 <h1><?= $message ?? ''; ?></h1>
+
+<h2>Список врачей:</h2>
+
 
 <?php if (!empty($doctors)): ?>
     <?php foreach($doctors as $doctor): ?>

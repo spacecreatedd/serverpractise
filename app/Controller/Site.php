@@ -15,6 +15,7 @@ use Model\Record;
 use Model\Chooserecord;
 use Model\Choosepatient;
 use Src\Validator\Validator;
+use Validators\RequireValidator;
 
 class Site
 {
@@ -80,32 +81,86 @@ class Site
 
     public function createDoctor(Request $request): string
     {
-        if (Auth::check() && Auth::user()->role === 'register') {
-            $jobs = Jobs::all();
-            $specs = Specs::all();
-            if ($request->method === 'POST' && Doctor::create($request->all())) {
-                app()->route->redirect('/hello');
+        if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'surname' => ['required'],
+                'patronym' => ['required'],
+                'date_of_birth' => ['required'],
+                'job' => ['required'],
+                'specialization' => ['required'],
+            ], [
+                'required' => 'Поле :field пусто',
+            ]);
+    
+            if($validator->fails()){
+                return new View('site.doctor',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
-            return new View('site.doctor', ['jobs' => $jobs, 'specs' => $specs]);
 
         }
+            if (Auth::check() && Auth::user()->role === 'register') {
+                $jobs = Jobs::all();
+                $specs = Specs::all();
+                if ($request->method === 'POST' && Doctor::create($request->all())) {
+                    app()->route->redirect('/hello');
+                }
+                return new View('site.doctor', ['jobs' => $jobs, 'specs' => $specs]);
+
+            }
+        
         app()->route->redirect('/hello');
 
     }
     
     public function createPatient(Request $request): string
     {
+        if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'surname' => ['required'],
+                'patronym' => ['required'],
+                'date_of_birth' => ['required'],
+                'image' => ['required'],
+            ], [
+                'required' => 'Поле :field пусто',
+            ]);
+    
+            if($validator->fails()){
+                return new View('site.patient',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+        }
+
         if (Auth::check() && Auth::user()->role === 'register') {
             if ($request->method === 'POST' && Patient::create($request->all())) {
-                app()->route->redirect('/hello');
+                app()->route->redirect('/choosepatient');
             }
             return new View('site.patient');
         }
-        app()->route->redirect('/hello');
+        app()->route->redirect('/choosepatient');
     }
 
     public function createReg(Request $request): string
     {
+        if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'login' => ['required'],
+                'password' => ['required'],
+                'role' => ['required'],
+            ], [
+                'required' => 'Поле :field пусто',
+            ]);
+    
+            if($validator->fails()){
+                return new View('site.register',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+        }
+        
         if (Auth::check() && Auth::user()->role === 'admin') {
             if ($request->method === 'POST' && User::create($request->all())) {
                 app()->route->redirect('/hello');
@@ -121,39 +176,77 @@ class Site
         $patient_id = Patient::all();
         $doctor_id = Doctor::all(); 
 
+        if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'patient_id' => ['required'],
+                'doctor_id' => ['required'],
+                'date' => ['required']
+            ], [
+                'required' => 'Поле :field пусто',
+            ]);
+    
+            if($validator->fails()){
+                return new View('site.record',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+        }
 
         if (Auth::check() && Auth::user()->role === 'register') {
             if ($request->method === 'POST' && Record::create($request->all())) {
-                app()->route->redirect('/hello');
+                app()->route->redirect('/chooserecord');
             }
             return new View('site.record', ['patient_id' => $patient_id, 'doctor_id' => $doctor_id]);
         }
-        app()->route->redirect('/hello');
+        app()->route->redirect('/chooserecord');
     }
     
     public function chooserecord(Request $request): string {
         $patient_id = Patient::all();
         $records = Record::all();
+        $message = '';
     
         if (Auth::check() && Auth::user()->role === 'register') {
             if ($request->method === 'POST') {
-                $patientFilter = $_POST['patient_filter'] ?? '';
+                if (isset($_POST['search_record'])) {
+                    $searchId = $_POST['record_id'] ?? null;
     
-                if (!empty($patientFilter)) {
-                    $records = Record::where('patient_id', $patientFilter)->get();
-                }
-                
-                if (isset($_POST['record_id'])) {
-                    $recordId = $_POST['record_id'];
-                    $record = Record::find($recordId);
-                    if ($record) {
-                        $record->delete();
+                    if ($searchId !== null) {
+                        $foundRecord = Record::find($searchId);
+                        if ($foundRecord) {
+                            // Если найдена запись, отображаем ее
+                            return (new View())->render('site.chooserecord', ['patient_id' => $patient_id, 'records' => $records, 'foundRecord' => $foundRecord]);
+                        } else {
+                            // Если запись не найдена, выводим сообщение об ошибке
+                            $message = 'Запись с указанным ID не найдена.';
+                        }
+                    } else {
+                        // Если ID не был передан, выводим сообщение об ошибке
+                        $message = 'Пожалуйста, введите ID записи для поиска.';
+                    }
+                } else {
+                    $patientFilter = $_POST['patient_filter'] ?? '';
+    
+                    if (!empty($patientFilter)) {
+                        $records = Record::where('patient_id', $patientFilter)->get();
+                    } else {
+                        $message = 'Пожалуйста, выберите пациента и укажите дату.';
+                    }
+    
+                    if (isset($_POST['record_id'])) {
+                        $recordId = $_POST['record_id'];
+                        $record = Record::find($recordId);
+                        if ($record) {
+                            $record->delete();
+                        }
                     }
                 }
             }
-            return (new View())->render('site.chooserecord', ['patient_id' => $patient_id, 'records' => $records]);
+            return (new View())->render('site.chooserecord', ['patient_id' => $patient_id, 'records' => $records, 'message' => $message]);
         }
     }
+    
+    
     
 
     public function choosepatient(Request $request): string {
@@ -210,13 +303,9 @@ class Site
             }
         }
         
-        $patients = Patient::all(); // Получаем всех пациентов для отображения в выпадающем списке
+        $patients = Patient::all();
         
-        return (new View())->render('site.choosedoctor', [
-            'message' => $message,
-            'patients' => $patients,
-            'doctors' => $doctors
-        ]);
+        return (new View())->render('site.choosedoctor', ['message' => $message, 'patients' => $patients,'doctors' => $doctors]);
     }
     
     

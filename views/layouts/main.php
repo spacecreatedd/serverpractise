@@ -66,6 +66,22 @@
             padding:10px 25px;
             margin:25px 0;
         }
+        button{
+            border: 0;
+        }
+        button:hover{
+            color:orange;
+            transition:0.2s ease-out;
+        }
+        .filter-form{
+            margin-top:25px;
+        }
+        .filter-form button{
+            margin-top:25px;
+        }
+        .search-form button{
+            margin-top:25px;
+        }
     </style>
 </head>
 <body>

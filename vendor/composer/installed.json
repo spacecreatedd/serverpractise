@@ -1171,6 +1171,97 @@
             "install-path": "../spacecreatedd/composer"
         },
         {
+            "name": "spacecreatedd/my-auth-package",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spacecreatedd/my-auth-package.git",
+                "reference": "eead1e114d4eed2fc91b91dfe34c688e23176b52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spacecreatedd/my-auth-package/zipball/eead1e114d4eed2fc91b91dfe34c688e23176b52",
+                "reference": "eead1e114d4eed2fc91b91dfe34c688e23176b52",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 | ^8.0"
+            },
+            "time": "2024-03-22T15:26:34+00:00",
+            "default-branch": true,
+            "type": "project",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/MyAuth.php"
+                ],
+                "psr-4": {
+                    "MyAuthPackage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "spacecreatedd",
+                    "email": "kimzhenya1313@mail.ru"
+                }
+            ],
+            "description": "my new packagemy-",
+            "support": {
+                "issues": "https://github.com/spacecreatedd/my-auth-package/issues",
+                "source": "https://github.com/spacecreatedd/my-auth-package/tree/master"
+            },
+            "install-path": "../spacecreatedd/my-auth-package"
+        },
+        {
+            "name": "spacecreatedd/session",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spacecreatedd/session.git",
+                "reference": "b6ec57bcb04a6bbee1716781e339b0d7137aa849"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spacecreatedd/session/zipball/b6ec57bcb04a6bbee1716781e339b0d7137aa849",
+                "reference": "b6ec57bcb04a6bbee1716781e339b0d7137aa849",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 | ^8.0"
+            },
+            "time": "2024-03-22T15:54:28+00:00",
+            "default-branch": true,
+            "type": "project",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "session\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "spacecreatedd",
+                    "email": "kimzhenya1313@mail.ru"
+                }
+            ],
+            "description": "my new package",
+            "support": {
+                "issues": "https://github.com/spacecreatedd/session/issues",
+                "source": "https://github.com/spacecreatedd/session/tree/master"
+            },
+            "install-path": "../spacecreatedd/session"
+        },
+        {
             "name": "symfony/console",
             "version": "6.0.x-dev",
             "version_normalized": "6.0.9999999.9999999-dev",

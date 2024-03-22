@@ -19,12 +19,17 @@ class ComposerStaticInit374327ff389fafb687fc5248a1d95e48
         'ef65a1626449d89d0811cf9befce46f0' => __DIR__ . '/..' . '/illuminate/events/functions.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '79fa9e153f8d459a3ad29e1489332b72' => __DIR__ . '/..' . '/spacecreatedd/composer/src/helpers.php',
+        'c203b4b301881349531c0ec6aff527bc' => __DIR__ . '/..' . '/spacecreatedd/my-auth-package/src/MyAuth.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'v' => 
         array (
             'voku\\' => 5,
+        ),
+        's' => 
+        array (
+            'session\\' => 8,
         ),
         'S' => 
         array (
@@ -45,6 +50,10 @@ class ComposerStaticInit374327ff389fafb687fc5248a1d95e48
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Container\\' => 14,
             'Psr\\Clock\\' => 10,
+        ),
+        'M' => 
+        array (
+            'MyAuthPackage\\' => 14,
         ),
         'I' => 
         array (
@@ -80,6 +89,10 @@ class ComposerStaticInit374327ff389fafb687fc5248a1d95e48
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'session\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spacecreatedd/session/src',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -136,6 +149,10 @@ class ComposerStaticInit374327ff389fafb687fc5248a1d95e48
         'Psr\\Clock\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/clock/src',
+        ),
+        'MyAuthPackage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spacecreatedd/my-auth-package/src',
         ),
         'Illuminate\\Support\\' => 
         array (

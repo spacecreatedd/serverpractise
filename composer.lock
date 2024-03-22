@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92d3ce4b912c92ed60f851cd76de4c68",
+    "content-hash": "befd66329f1bfc2ce04ce1f630420b18",
     "packages": [
         {
             "name": "brick/math",
@@ -1120,6 +1120,91 @@
             "time": "2024-03-21T16:52:54+00:00"
         },
         {
+            "name": "spacecreatedd/my-auth-package",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spacecreatedd/my-auth-package.git",
+                "reference": "eead1e114d4eed2fc91b91dfe34c688e23176b52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spacecreatedd/my-auth-package/zipball/eead1e114d4eed2fc91b91dfe34c688e23176b52",
+                "reference": "eead1e114d4eed2fc91b91dfe34c688e23176b52",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 | ^8.0"
+            },
+            "default-branch": true,
+            "type": "project",
+            "autoload": {
+                "files": [
+                    "src/MyAuth.php"
+                ],
+                "psr-4": {
+                    "MyAuthPackage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "spacecreatedd",
+                    "email": "kimzhenya1313@mail.ru"
+                }
+            ],
+            "description": "my new packagemy-",
+            "support": {
+                "issues": "https://github.com/spacecreatedd/my-auth-package/issues",
+                "source": "https://github.com/spacecreatedd/my-auth-package/tree/master"
+            },
+            "time": "2024-03-22T15:26:34+00:00"
+        },
+        {
+            "name": "spacecreatedd/session",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spacecreatedd/session.git",
+                "reference": "b6ec57bcb04a6bbee1716781e339b0d7137aa849"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spacecreatedd/session/zipball/b6ec57bcb04a6bbee1716781e339b0d7137aa849",
+                "reference": "b6ec57bcb04a6bbee1716781e339b0d7137aa849",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 | ^8.0"
+            },
+            "default-branch": true,
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "session\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "spacecreatedd",
+                    "email": "kimzhenya1313@mail.ru"
+                }
+            ],
+            "description": "my new package",
+            "support": {
+                "issues": "https://github.com/spacecreatedd/session/issues",
+                "source": "https://github.com/spacecreatedd/session/tree/master"
+            },
+            "time": "2024-03-22T15:54:28+00:00"
+        },
+        {
             "name": "symfony/console",
             "version": "6.0.x-dev",
             "source": {
@@ -2038,7 +2123,10 @@
     "stability-flags": {
         "illuminate/database": 20,
         "illuminate/events": 20,
-        "nikic/fast-route": 20
+        "nikic/fast-route": 20,
+        "spacecreatedd/composer": 20,
+        "spacecreatedd/my-auth-package": 20,
+        "spacecreatedd/session": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -15,7 +15,9 @@
         "illuminate/database": "9.x-dev",
         "illuminate/events": "9.x-dev",
         "nikic/fast-route": "v1.x-dev",
-        "spacecreatedd/composer": "dev-master"
+        "spacecreatedd/composer": "dev-master",
+        "spacecreatedd/my-auth-package": "dev-master",
+        "spacecreatedd/session": "dev-master"
      
      },
      "autoload": {

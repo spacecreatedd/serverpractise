@@ -33,6 +33,7 @@
     </div>
 <?php endif; ?>
 
+
 <!-- Отображение всех записей (если нет результатов поиска) -->
 <?php if (!isset($foundRecord)): ?>
     <?php foreach($records as $record): ?>

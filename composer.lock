@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15cb1125dc19d0e56532f2189ab92e5b",
+    "content-hash": "92d3ce4b912c92ed60f851cd76de4c68",
     "packages": [
         {
             "name": "brick/math",
@@ -1074,6 +1074,50 @@
                 "source": "https://github.com/php-fig/simple-cache/tree/master"
             },
             "time": "2022-04-08T16:41:45+00:00"
+        },
+        {
+            "name": "spacecreatedd/composer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spacecreatedd/composer.git",
+                "reference": "eacf52d7bd66b808c20767c3c503925a9521dff6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spacecreatedd/composer/zipball/eacf52d7bd66b808c20767c3c503925a9521dff6",
+                "reference": "eacf52d7bd66b808c20767c3c503925a9521dff6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 | ^8.0"
+            },
+            "default-branch": true,
+            "type": "project",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Collect\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "spacecreatedd",
+                    "email": "kimzhenya1313@mail.ru"
+                }
+            ],
+            "description": "this is a 4th lab",
+            "support": {
+                "issues": "https://github.com/spacecreatedd/composer/issues",
+                "source": "https://github.com/spacecreatedd/composer/tree/master"
+            },
+            "time": "2024-03-21T16:52:54+00:00"
         },
         {
             "name": "symfony/console",

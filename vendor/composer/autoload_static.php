@@ -18,6 +18,7 @@ class ComposerStaticInit374327ff389fafb687fc5248a1d95e48
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'ef65a1626449d89d0811cf9befce46f0' => __DIR__ . '/..' . '/illuminate/events/functions.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '79fa9e153f8d459a3ad29e1489332b72' => __DIR__ . '/..' . '/spacecreatedd/composer/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -65,6 +66,7 @@ class ComposerStaticInit374327ff389fafb687fc5248a1d95e48
         ),
         'C' => 
         array (
+            'Collect\\' => 8,
             'Carbon\\Doctrine\\' => 16,
             'Carbon\\' => 7,
         ),
@@ -173,6 +175,10 @@ class ComposerStaticInit374327ff389fafb687fc5248a1d95e48
         'Doctrine\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
+        ),
+        'Collect\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spacecreatedd/composer/src',
         ),
         'Carbon\\Doctrine\\' => 
         array (

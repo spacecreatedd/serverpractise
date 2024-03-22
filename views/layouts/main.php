@@ -59,7 +59,7 @@
             font-size:20px;
         }
         .record{
-            max-width:1000px;
+            max-width:1500px;
             display:flex;
             justify-content:space-between;
             border:1px solid #000;

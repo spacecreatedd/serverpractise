@@ -18,5 +18,7 @@
         <p>Фамилия: <?= $patient->surname ?></p>
         <p>Отчество: <?= $patient->patronym ?></p>
         <p>Дата рождения: <?= $patient->date_of_birth ?></p>
+        <img src="<?= $patient->image ?>" alt="Фото пациента">
     </div>
 <?php endforeach; ?>
+
